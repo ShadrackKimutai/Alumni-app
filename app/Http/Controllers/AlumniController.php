@@ -35,20 +35,7 @@ class AlumniController extends Controller
      */
     public function store(Request $request)
     {
-        //
         
-      
-    // $validated = $request->validated()
-     // $validatedData = $request->all();
-      /*
-        $alumn = new Alumni;
-       $alumn->fill($request->all());
-        $alumn->save();
-        //$validated->save();
-      //  return redirect('/')->with('success', 'You have been added as an Alumni of RVTTI');
-        return redirect('/')->with('message', $alumni'You have been added as an Alumni of RVTTI');
-        */
-
         $request -> validate([
             'adm'=> 'required',  
            'fullname'=> 'required', 
@@ -70,7 +57,6 @@ class AlumniController extends Controller
            'placeofworkadd'=> 'required', 
            'supervisoradd'=> 'required', 
         ], 
-
         [
               'adm.required' => 'Student Admission Number is required',
               'fullname.required'=>'Your Name is Required',
@@ -79,7 +65,7 @@ class AlumniController extends Controller
               'email.required'=>'Your Email is Required. It should be unique',
                 'mobile.required' => 'Mobile Phone Number is Required',
                 'current_address.required'=>  'Current Mailing Address is Required',  
-           'permanent_address.required'=>  'required',
+           'permanent_address.required'=>  'Your Permanent Address is required',
           
            'occupation.required'=>  'Your Current Job is Required. If Unemployed use N/A', 
            'occupation_place.required'=>  'Place of Employment is Required. If Unemployed use N/A', 
@@ -88,17 +74,11 @@ class AlumniController extends Controller
            'nextofkinphone.required'=>  'Next of Kin`s Phone number is Needed', 
            'placeofworkadd.required'=>  'The Locality of your Employment is equired. If Unemployed use N/A', 
            'supervisoradd.required'=>  'Your Supervisors Phone number is Required. If Unemployed use N/A', 
-
             ]);
-
         $input = request()->all();
-
-
         $alumni = Alumni::create($input);
-
     
-
-        return back()->with('message', 'You have been added as an Alumni of RVTTI');
+       return redirect('/')->with('message', 'You have been added as an Alumni of RVTTI');
     }
 
     /**
@@ -145,14 +125,4 @@ class AlumniController extends Controller
     {
         //
     }
-  
-
-    public function withValidator($validator)
-{
-    $validator->after(function ($validator) {
-        if ($this->somethingElseIsInvalid()) {
-            $validator->errors()->add('field', 'Something is wrong with this field!');
-        }
-    });
-}
 }
