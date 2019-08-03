@@ -1,2 +1,2 @@
-# Rvtti-alumni-app
-Rvtti alumni Portal app
+# Alumni-app
+Alumni Portal app
