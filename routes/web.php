@@ -25,6 +25,10 @@ Route::resource('alumnis','AlumniController');
 Auth::routes();
 
 //Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/alumnis/login', 'Auth\alumniLoginController@showLoginForm')->name('alumni.login');
+Route::post('/alumnis/login', 'Auth\alumniLoginController@login')->name('alumni.login.post');
+Route::post('/alumnis/logout', 'Auth\alumniLoginController@logout')->name('alumni.logout');
+
 Route::group(['middleware'=>'teacher'], function() {
-    Route::get('/home', 'HomeController@index');
+    Route::get('/alumnis/home', 'alumni\HomeController@index');
 });
