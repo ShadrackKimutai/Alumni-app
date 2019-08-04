@@ -125,4 +125,9 @@ class AlumniController extends Controller
     {
         //
     }
+
+
+    public function login(){
+      return view('alumni.login');
+    }
 }

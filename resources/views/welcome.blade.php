@@ -53,7 +53,7 @@
         <div class="col-md-8 mx-auto">
           <h2 class="section-heading">Are your details wrongly captured</h2>
           <p>Click the link below to correct it. </p>
-          <a href="#register" class="btn bg-primary btn-outline btn-xl js-scroll-trigger">Click to Edit Details</a>
+          <a href="{{ route('alumni-login')}}" class="btn bg-primary btn-outline btn-xl js-scroll-trigger">Click to Edit Details</a>
 </div>
 
       </div>
