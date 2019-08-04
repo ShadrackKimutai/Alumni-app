@@ -23,8 +23,12 @@ Route::get('/new', function () {
 Route::resource('alumnis','AlumniController');
 
 Auth::routes();
+Route::group(['middleware' => ['web']], function () {
 
-//Route::get('/home', 'HomeController@index')->name('home');
-Route::group(['middleware'=>'teacher'], function() {
-    Route::get('/home', 'HomeController@index');
+
+
+    Route::get('alumni-login', 'AlumniAuthController@login');
+
+    Route::post('alumni-login', ['as'=>'alumni-login','uses'=>'AlumniAuthController@dologin']);
+
 });

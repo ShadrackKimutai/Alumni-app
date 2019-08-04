@@ -1,9 +1,10 @@
 <?php
 
 namespace App\Models;
+use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class Alumni extends extends Model
+class Alumni  extends Authenticatable
 {
 	protected $fillable = [
 		'id',

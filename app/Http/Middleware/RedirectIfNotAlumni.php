@@ -14,7 +14,7 @@ class RedirectIfNotAlumni
     public function handle($request, Closure $next, $guard="alumni")
     {
         if(!auth()->guard($guard)->check()) {
-            return redirect(route('alumnis.login'));
+            return redirect(route('alumni.login'));
         }
         return $next($request);
     }
