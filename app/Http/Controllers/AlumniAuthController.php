@@ -20,7 +20,8 @@ namespace App\Http\Controllers;
     // Check validation
  		$checkLogin = DB::table('alumnis')->where(['email'=>$email,'idnum'=>$idnum])->get();
  		if(count($checkLogin)  >0){
- 			echo "Login SuccessFull<br/>";;
+ 			$alumni = DB::table('alumnis')->where('idnum', $idnum)->first();
+ 			return view ("alumni.edit", ['alumni'=>$alumni]);
  		}else{
  			echo "Login Faield Wrong Data Passed";
  		}
