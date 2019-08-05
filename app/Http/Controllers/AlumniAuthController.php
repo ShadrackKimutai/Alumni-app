@@ -1,6 +1,6 @@
 <?php
 namespace App\Http\Controllers;
-
+use Illuminate\Routing\Route;
  use Illuminate\Support\Facades\Auth;
  use App\Http\Controllers\Controller;
  use Illuminate\Http\Request;
@@ -11,7 +11,7 @@ namespace App\Http\Controllers;
  class AlumniAuthController extends Controller {
 
  	public function login(){
- 		return view(' alumni.login');
+ 		return view('alumni.login');
  	}
 
  	public function dologin(Request $request){
@@ -21,7 +21,7 @@ namespace App\Http\Controllers;
  		$checkLogin = DB::table('alumnis')->where(['email'=>$email,'idnum'=>$idnum])->get();
  		if(count($checkLogin)  >0){
  			$alumni = DB::table('alumnis')->where('idnum', $idnum)->first();
- 			return view ("alumni.edit", ['alumni'=>$alumni]);
+ 			return view("alumni.edit", ['alumni'=>$alumni]);
  		}else{
  			echo "Login Faield Wrong Data Passed";
  		}
