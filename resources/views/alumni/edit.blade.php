@@ -29,11 +29,9 @@
 
                     <div class="card-body">
 
-                       <form class="form-horizontal" action="{{ route('alumnis.update',$alumni->id) }}" method ="PATCH ">
-
-        @csrf
-
-        {{ method_field('PATCH') }}
+        <form class="form-horizontal" action="{{ route('alumnis.update', $alumni->id) }}" method ="POST" enctype="multipart/form-data">
+@method('PATCH')
+    @csrf
                           <div class="form-group">
                             <label for="fullname" class="col-sm-2 control-label">Name</label>
                             <div class="col-sm-10">

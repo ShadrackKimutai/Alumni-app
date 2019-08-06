@@ -110,9 +110,15 @@ class AlumniController extends Controller
      * @param  \App\alumni  $alumni
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, alumni $alumni)
+    public function update(Request $request, $id)
     {
-             $request -> validate([
+
+
+$validatedData = $request->all();
+dd($validatedData);
+      /*
+
+             $validatedData = $request->validate([
             'adm'=> 'required',  
            'fullname'=> 'required', 
            'dept'=> 'required', 
@@ -152,12 +158,13 @@ class AlumniController extends Controller
            'supervisoradd.required'=>  'Your Supervisors Phone number is Required. If Unemployed use N/A', 
             ]);
 
-        $alumni=$request()->all();
-        echo $alumni;
-        $alumni->save();
-       
-    
+        dd($validatedData);
+
+        Alumni::whereid($id)->update($validatedData);
+      
+           
         return redirect('/')->with('message','Details updated successfully');
+        */
     }
 
     /**

@@ -18,7 +18,9 @@ Route::get('/', function () {
 Route::get('/new', function () {
     return view('alumni/register');
 });
-
+Route::get('update', function () {
+	return view('alumni.edit');
+});
 
 Route::resource('alumnis','AlumniController');
 

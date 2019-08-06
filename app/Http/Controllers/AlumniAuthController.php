@@ -21,7 +21,7 @@ use Illuminate\Routing\Route;
  		$checkLogin = DB::table('alumnis')->where(['email'=>$email,'idnum'=>$idnum])->get();
  		if(count($checkLogin)  >0){
  			$alumni = DB::table('alumnis')->where('idnum', $idnum)->first();
- 			return view("alumni.edit", ['alumni'=>$alumni]);
+ 			 return view("alumni.edit",['alumni'=>$alumni]);
  		}else{
  			echo "Login Faield Wrong Data Passed";
  		}
