@@ -27,7 +27,9 @@ Route::resource('alumnis','AlumniController');
 Auth::routes();
 Route::group(['middleware' => ['web']], function () {
 
-
+ROute::get('/home', function(){
+	return view ('home');
+});
 
     Route::get('alumni-login', 'AlumniAuthController@login');
 

@@ -29,7 +29,7 @@
 
                     <div class="card-body">
 
-        <form class="form-horizontal" action="{{ route('alumnis.update', $alumni->id) }}" method ="POST" enctype="multipart/form-data">
+        <form class="form-horizontal" action="{{ route('alumnis.update', $alumni->id) }}" method ="POST" >
 @method('PATCH')
     @csrf
                           <div class="form-group">

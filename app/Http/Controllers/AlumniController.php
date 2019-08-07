@@ -14,7 +14,8 @@ class AlumniController extends Controller
      */
     public function index()
     {
-        //
+        $alumni=DB::table('Alumnis')->paginate(100);
+        return view('/',['alumni'=>$alumni]);
     }
 
     /**
@@ -113,11 +114,7 @@ class AlumniController extends Controller
     public function update(Request $request, $id)
     {
 
-
-$validatedData = $request->all();
-dd($validatedData);
-      /*
-
+/*
              $validatedData = $request->validate([
             'adm'=> 'required',  
            'fullname'=> 'required', 
@@ -157,14 +154,16 @@ dd($validatedData);
            'placeofworkadd.required'=>  'The Locality of your Employment is equired. If Unemployed use N/A', 
            'supervisoradd.required'=>  'Your Supervisors Phone number is Required. If Unemployed use N/A', 
             ]);
+*/
+              $input = request()->all();
 
-        dd($validatedData);
+        dd($request);
 
         Alumni::whereid($id)->update($validatedData);
       
            
         return redirect('/')->with('message','Details updated successfully');
-        */
+        
     }
 
     /**

@@ -66,6 +66,9 @@
           <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="#graduate">Generate Graduation Form</a>
           </li>
+           <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="/login">Admin Panel</a>
+          </li>
         </ul>
       </div>
     </div>
