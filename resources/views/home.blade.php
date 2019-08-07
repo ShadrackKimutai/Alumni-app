@@ -34,7 +34,7 @@
     <th>email</th>
   </thead>
   <tbody>
-    @foreach $alumn as $alumni 
+    @foreach ($alumni as $alumn) 
     <tr>
       <td> {{ $alumn->id }}</td>
       <td>{{ $alumn->adm }} </td>
@@ -45,6 +45,7 @@
       <td>{{ $alumn->email }}</td>
 
     </tr>
+   @endforeach
   </tbody>
 </table>
 <!-- End Multi step form -->   
