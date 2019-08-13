@@ -62,9 +62,6 @@
   <section class="features bg-dark text-center"  id="graduate">
    <div class="container">
       <div class="row">
-        <div class="col-md-8 mx-auto">
-          <h1 class="mb-5 text-white">Do you wish to generate the graduation form </h1></p>
-          <a href="#generate" class="btn bg-secondary btn-outline btn-xl js-scroll-trigger">Click to Generate</a>
 </div>
 
       </div>

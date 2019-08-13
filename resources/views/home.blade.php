@@ -1,7 +1,12 @@
-@extends('layouts.min')
+
+@extends('layouts.auth')
 
 @section('content')
-<!-- Multi step form --> 
+
+      
+
+<div class="container bg-white">
+    
 <div class="row">
  <div class="content">
                 <div class="title m-b-md">
@@ -10,28 +15,29 @@
   </div>
 
 
-    <div class="col-md-12" >
+    <div class="col-md-4" >
       <form action="/search" method="post">
         @csrf
         <div class="form-group">
           <input type="search" name="search" class="form-control">
           <span class="form-button-group">
-            <button type="submt" class="btn btn-primary">Search</button>
+            <button type="submt" class="btn btn-default">Search</button>
           </span>
         </div>
 
-      </form>
+      </form> 
     </div>
   </div>
 
 <table class="table table-bordered">
   <thead>
-    <th>adm</th>
+    <th>Entry</th>
+    <th>Reg Number</th>
     <th>Full Name</th>
-    <th>Id Number</th>
+    <th>ID/PASSPORT</th>
     <th>Course</th>
     <th>Department</th>
-    <th>email</th>
+    <th>EMail</th>
   </thead>
   <tbody>
     @foreach ($alumni as $alumn) 
@@ -48,5 +54,6 @@
    @endforeach
   </tbody>
 </table>
+</div>
 <!-- End Multi step form -->   
 @endsection

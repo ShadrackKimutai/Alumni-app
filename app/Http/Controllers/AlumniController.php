@@ -14,8 +14,9 @@ class AlumniController extends Controller
      */
     public function index()
     {
-       $alumni=DB::table('Alumnis')->paginate(100);
-        return view('/home',['alumni'=>$alumni]);
+       $Alumni = DB::table('Alumnis')->paginate(100);
+       dd($Alumni);
+        return view('home',['Alumni' => $Alumni]);
     
     }
 

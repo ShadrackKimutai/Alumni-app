@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
 
 Route::get('/new', function () {
@@ -27,9 +27,7 @@ Route::resource('alumnis','AlumniController');
 Auth::routes();
 Route::group(['middleware' => ['web']], function () {
 
-ROute::get('/home', function(){
-	return view ('home');
-});
+ROute::get('/home', 'HomeController@index' );
 
     Route::get('alumni-login', 'AlumniAuthController@login');
 
