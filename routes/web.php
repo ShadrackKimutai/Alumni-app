@@ -28,6 +28,7 @@ Auth::routes();
 Route::group(['middleware' => ['web']], function () {
 
 ROute::get('/home', 'HomeController@index' );
+Route::get('/search','HomeController@search');
 
     Route::get('alumni-login', 'AlumniAuthController@login');
 

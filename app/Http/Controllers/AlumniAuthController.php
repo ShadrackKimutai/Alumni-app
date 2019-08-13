@@ -6,7 +6,7 @@ use Illuminate\Routing\Route;
  use Illuminate\Http\Request;
  use Illuminate\Http\Response;
  use App\Models\Alumni;
- use DB;
+use Illuminate\Support\Facades\DB;
 
  class AlumniAuthController extends Controller {
 
