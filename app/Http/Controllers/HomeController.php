@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
+use DB;
 
 class HomeController extends Controller
 {
@@ -24,7 +24,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-       $alumni = DB::table('alumnis')->orderBy('adm', 'asc')->paginate(100);
+       $alumni = DB::table('alumnis')->orderBy('Adm', 'asc')->paginate(100);
 
         return view('home',['alumni' => $alumni]);
     
@@ -32,8 +32,8 @@ class HomeController extends Controller
 
     public function search(Request $request){
         $search=$request->get('search');
-        $alumni=DB::table('alumnis')    -> where('adm','like','%'.$search. '%' )
-                                        ->orWhere('idnum', 'like','%'.$search. '%' )
+        $alumni=DB::table('alumnis')    -> where('Adm','like','%'.$search. '%' )
+                                        ->orWhere('IDNum', 'like','%'.$search. '%' )
                                         ->orWhere('fullname','like','%' .$search.'%')
                                         ->orWhere('mobile','like','%'.$search.'%')
                                         ->orWhere('course','like','%'.$search.'%')
