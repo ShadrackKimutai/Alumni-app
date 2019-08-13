@@ -24,7 +24,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-       $alumni = DB::table('alumnis')->paginate(100);
+       $alumni = DB::table('alumnis')->orderBy('adm', 'asc')->paginate(100);
 
         return view('home',['alumni' => $alumni]);
     
@@ -39,6 +39,7 @@ class HomeController extends Controller
                                         ->orWhere('course','like','%'.$search.'%')
                                         ->orWhere('dept','like','%'.$search.'%')
                                         ->orWhere('email','like','%'.$search.'%')
+                                        ->orderBy('adm', 'asc')
                                         ->paginate(50); 
 
             return view('home',['alumni' => $alumni]);
