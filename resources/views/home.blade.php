@@ -35,7 +35,7 @@
             <thead>
               <th>Reg Number</th>
               <th>Full Name</th>
-              <th>ID/PASSPORT</th>
+              <th>ID/Passport</th>
               <th>Course</th>
               <th>Department</th>
               <th>Mobile</th>
