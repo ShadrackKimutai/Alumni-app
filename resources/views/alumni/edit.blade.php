@@ -22,70 +22,86 @@
         </ul>
       </div><br />
     @endif
-      <form method="post" action="{{ route('alumnis.update', $alumni->idnum) }}">
+      <form method="post" action="{{ route('alumnis.update', $alumni->id) }}">
         @method('PATCH')
         @csrf
         <div class="form-group">
           <label for="name">Name:</label>
-          <input type="text" class="form-control" name="fullname" value={{ $alumni->fullname }} />
+          <input type="text" class="form-control" name="fullname" value="{{ $alumni->fullname }}" />
         </div>
         <div class="form-group">
           <label for="dept">dept:</label>
-          <input type="text" class="form-control" name="dept" value={{ $alumni->dept }} />
+          <input type="text" class="form-control" name="dept" value="{{ $alumni->dept }}" />
         </div>
         <div class="form-group">
           <label for="course">course:</label>
-          <input type="text" class="form-control" name="course" value={{ $alumni->course }} />
+          <input type="text" class="form-control" name="course" value="{{ $alumni->course }}" />
+        </div>
+         <div class="form-group">
+          <label for="feser">Final Exam Series:</label>
+          <input type="text" class="form-control" name="feser" value="{{ $alumni->feser }}" />
         </div>
         <div class="form-group">
           <label for="feyear">Final Year:</label>
-          <input type="text" class="form-control" name="feyear" value={{ $alumni->feyear }} />
+          <input type="text" class="form-control" name="feyear" value="{{ $alumni->feyear }}" />
         </div>
         <div class="form-group">
           <label for="idnum">ID Number :</label>
-          <input type="text" class="form-control" name="idnum" value={{ $alumni->idnum }} />
+          <input type="text" class="form-control" name="idnum" value="{{ $alumni->idnum }}" />
+        </div>
+         <div class="form-group">
+          <label for="adm">Student Registration Number :</label>
+          <input type="text" class="form-control" name="adm" value="{{ $alumni->adm }}" />
+        </div>
+         <div class="form-group">
+          <label for="level">Level :</label>
+          <input type="text" class="form-control" name="level" value="{{ $alumni->level }}" />
         </div>
         <div class="form-group">
           <label for="current_address">Your Current Address:</label>
-          <input type="text" class="form-control" name="current_address" value={{ $alumni->current_address }} />
+          <input type="text" class="form-control" name="current_address" value="{{ $alumni->current_address }}" />
         </div>
          <div class="form-group">
           <label for="permanent_address">Your Permanent Address:</label>
-          <input type="text" class="form-control" name="permanent_address" value={{ $alumni->permanent_address }} />
+          <input type="text" class="form-control" name="permanent_address" value="{{ $alumni->permanent_address }}" />
         </div>
         <div class="form-group">
           <label for="email">Email:</label>
-          <input type="email" class="form-control" name="email" value={{ $alumni->email }} />
+          <input type="email" class="form-control" name="email" value="{{ $alumni->email }}" />
         </div>
         <div class="form-group">
           <label for="mobile">Mobile :</label>
-          <input type="text" class="form-control" name="mobile" value={{ $alumni->mobile }} />
+          <input type="text" class="form-control" name="mobile" value="{{ $alumni->mobile }}" />
         </div>
         <div class="form-group">
           <label for="nextofkin">Next of Kin:</label>
-          <input type="text" class="form-control" name="nextofkin" value={{ $alumni->nextofkin }} />
+          <input type="text" class="form-control" name="nextofkin" value="{{ $alumni->nextofkin }}" />
+        </div>
+         <div class="form-group">
+          <label for="nextofkinphone">Next of Kin Mobile :</label>
+          <input type="text" class="form-control" name="nextofkinphone" value="{{ $alumni->nextofkinphone }}" />
         </div>
         <div class="form-group">
           <label for="nextofkinadd">Next of Kin Address:</label>
-          <input type="text" class="form-control" name="nextofkinadd" value={{ $alumni->nextofkinadd }} />
+          <input type="text" class="form-control" name="nextofkinadd" value="{{ $alumni->nextofkinadd }}" />
         </div>
          <div class="form-group">
           <label for="occupation">Current Job:</label>
-          <input type="text" class="form-control" name="occupation" value={{ $alumni->occupation }} />
+          <input type="text" class="form-control" name="occupation" value="{{ $alumni->occupation }}" />
         </div>
         <div class="form-group">
-          <label for="placeofworkadd">Place of Work Addr:</label>
-          <input type="text" class="form-control" name="placeofworkadd" value={{ $alumni->placeofworkadd }} />
+          <label for="placeofworkadd">Place of Work Address:</label>
+          <input type="text" class="form-control" name="placeofworkadd" value="{{ $alumni->placeofworkadd }}" />
         </div>
 
         <div class="form-group">
           <label for="occupation_place">Place of Work :</label>
-          <input type="text" class="form-control" name="occupation_place" value={{ $alumni->occupation_place }} />
+          <input type="text" class="form-control" name="occupation_place" value="{{ $alumni->occupation_place }}" />
         </div>
 
         <div class="form-group">
           <label for="supervisoradd">Work Supervisors phone:</label>
-          <input type="text" class="form-control" name="supervisoradd" value={{ $alumni->supervisoradd }} />
+          <input type="text" class="form-control" name="supervisoradd" value="{{ $alumni->supervisoradd }}" />
         </div>
 
         <button type="submit" class="btn btn-primary">Update</button>
