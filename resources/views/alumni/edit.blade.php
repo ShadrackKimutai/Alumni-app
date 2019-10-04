@@ -1,170 +1,93 @@
-    @extends('layouts.auth')
+@extends('layout')
 
-
-    @section('content')
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header">{{ __('Edit Profile') }}</div>
-                    @if ($errors->any())
-
-                    <div class="alert alert-danger">
-
-                        <strong>Whoops!</strong> There were some problems with your input.<br><br>
-
-                        <ul>
-
-                            @foreach ($errors->all() as $error)
-
-                            <li>{{ $error }}</li>
-
-                            @endforeach
-
-                        </ul>
-
-                    </div>
-
-                    @endif
-
-                    <div class="card-body">
-
-        <form class="form-horizontal" action="{{ route('alumnis.update', $alumni->id) }}" method ="POST" >
-@method('PATCH')
-    @csrf
-                          <div class="form-group">
-                            <label for="fullname" class="col-sm-2 control-label">Name</label>
-                            <div class="col-sm-10">
-                              <input class="form-control" id="fullname" value="{{ $alumni->fullname }}" >
-                          </div>
-                      </div>
-
-                      <div class="form-group">
-                        <label for="idnum" class="col-sm-2 control-label">ID Number</label>
-                        <div class="col-sm-10">
-                          <input class="form-control" id="idnum"  value="{{ $alumni->idnum }}" >
-                      </div>
-                  </div>
-
-                  <div class="form-group">
-                    <label for="adm" class="col-sm-2 control-label">Admission Number</label>
-                    <div class="col-sm-10">
-                      <input class="form-control" id="adm" value="{{ $alumni->adm }}" >
-                  </div>
-              </div>
-
-              <div class="form-group">
-                <label for="mobile" class="col-sm-2 control-label">Mobile Phone Number</label>
-                <div class="col-sm-10">
-                  <input class="form-control" id="mobile" value="{{ $alumni->mobile }}" >
-              </div>
-          </div>
-
-          <div class="form-group">
-            <label for="email" class="col-sm-2 control-label">Email</label>
-            <div class="col-sm-10">
-              <input class="form-control" id="email" type="email" value="{{ $alumni->email }}" >
-          </div>
-      </div>
-
-      <div class="form-group">
-        <label for="dept" class="col-sm-2 control-label">Department</label>
-        <div class="col-sm-10">
-          <input class="form-control" id="dept" value="{{ $alumni->dept }}" >
-      </div>
+@section('content')
+<style>
+  .uper {
+    margin-top: 40px;
+  }
+</style>
+<div class="card uper">
+  <div class="card-header">
+    Edit Share
   </div>
+  <div class="card-body">
+    @if ($errors->any())
+      <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+              <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+      </div><br />
+    @endif
+      <form method="post" action="{{ route('alumni.update', $share->id) }}">
+        @method('PATCH')
+        @csrf
+        <div class="form-group">
+          <label for="name">Name:</label>
+          <input type="text" class="form-control" name="fullname" value={{ $share->fullname }} />
+        </div>
+        <div class="form-group">
+          <label for="dept">dept:</label>
+          <input type="text" class="form-control" name="dept" value={{ $share->dept }} />
+        </div>
+        <div class="form-group">
+          <label for="course">course:</label>
+          <input type="text" class="form-control" name="course" value={{ $share->course }} />
+        </div>
+        <div class="form-group">
+          <label for="feyear">Final Year:</label>
+          <input type="text" class="form-control" name="feyear" value={{ $share->feyear }} />
+        </div>
+        <div class="form-group">
+          <label for="idnum">ID Number :</label>
+          <input type="text" class="form-control" name="idnum" value={{ $share->idnum }} />
+        </div>
+        <div class="form-group">
+          <label for="current_address">Your Current Address:</label>
+          <input type="text" class="form-control" name="current_address" value={{ $share->current_address }} />
+        </div>
+         <div class="form-group">
+          <label for="permanent_address">Your Permanent Address:</label>
+          <input type="text" class="form-control" name="permanent_address" value={{ $share->permanent_address }} />
+        </div>
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="email" class="form-control" name="email" value={{ $share->email }} />
+        </div>
+        <div class="form-group">
+          <label for="mobile">Mobile :</label>
+          <input type="text" class="form-control" name="mobile" value={{ $share->mobile }} />
+        </div>
+        <div class="form-group">
+          <label for="nextofkin">Next of Kin:</label>
+          <input type="text" class="form-control" name="nextofkin" value={{ $share->nextofkin }} />
+        </div>
+        <div class="form-group">
+          <label for="nextofkinadd">Next of Kin Address:</label>
+          <input type="text" class="form-control" name="nextofkinadd" value={{ $share->nextofkinadd }} />
+        </div>
+         <div class="form-group">
+          <label for="occupation">Current Job:</label>
+          <input type="text" class="form-control" name="occupation" value={{ $share->occupation }} />
+        </div>
+        <div class="form-group">
+          <label for="placeofworkadd">Place of Work Addr:</label>
+          <input type="text" class="form-control" name="placeofworkadd" value={{ $share->placeofworkadd }} />
+        </div>
 
-  <div class="form-group">
-    <label for="course" class="col-sm-2 control-label">Course</label>
-    <div class="col-sm-10">
-      <input class="form-control" id="course" value="{{ $alumni->course }}" >
-  </div>
-</div>
+        <div class="form-group">
+          <label for="occupation_place">Place of Work :</label>
+          <input type="text" class="form-control" name="occupation_place" value={{ $share->occupation_place }} />
+        </div>
 
-<div class="form-group">
-    <label for="level" class="col-sm-2 control-label">Level</label>
-    <div class="col-sm-10">
-      <input class="form-control" id="level" value="{{ $alumni-> level}}" >
-  </div>
-</div>
+        <div class="form-group">
+          <label for="supervisoradd">Work Supervisors phone:</label>
+          <input type="text" class="form-control" name="supervisoradd" value={{ $share->supervisoradd }} />
+        </div>
 
-
-<div class="form-group">
-    <label for="current_address" class="col-sm-2 control-label">Current Address</label>
-    <div class="col-sm-10">
-      <input class="form-control" id="current_address" value="{{ $alumni->current_address }}" >
+        <button type="submit" class="btn btn-primary">Update</button>
+      </form>
   </div>
 </div>
-
-<div class="form-group">
-    <label for="permanent_address" class="col-sm-2 control-label">Permanent Address</label>
-    <div class="col-sm-10">
-      <input class="form-control" id="permanent_address" value="{{ $alumni-> permanent_address}}" >
-  </div>
-</div>
-
-<div class="form-group">
-    <label for="nextofkin" class="col-sm-2 control-label">Next of Kin</label>
-    <div class="col-sm-10">
-      <input class="form-control" id="nextofkin" value="{{ $alumni->nextofkin }}" >
-  </div>
-</div>
-
-
-<div class="form-group">
-    <label for="nextofkinphone" class="col-sm-2 control-label">Next of Kin Phone</label>
-    <div class="col-sm-10">
-      <input class="form-control" id="nextofkinphone" value="{{ $alumni->nextofkinphone }}" >
-  </div>
-</div>
-
-<div class="form-group">
-    <label for="nextofkinadd" class="col-sm-2 control-label">Next of kin Address</label>
-    <div class="col-sm-10">
-      <input class="form-control" id="nextofkinadd" value="{{ $alumni->nextofkinadd }}" >
-  </div>
-</div>
-
-<div class="form-group">
-    <label for="occupation" class="col-sm-2 control-label">Occupation</label>
-    <div class="col-sm-10">
-      <input class="form-control" id="occupation" value="{{ $alumni->occupation }}" >
-  </div>
-</div>
-
-<div class="form-group">
-    <label for="occupation_place" class="col-sm-2 control-label">Occupation Address</label>
-    <div class="col-sm-10">
-      <input class="form-control" id="occupation_place" value="{{ $alumni->occupation_place }}" >
-  </div>
-</div>
-
-<div class="form-group">
-    <label for="placeofworkadd" class="col-sm-2 control-label">Occupation Place</label>
-    <div class="col-sm-10">
-      <input class="form-control" id="placeofworkadd" value="{{ $alumni->placeofworkadd }}" >
-  </div>
-</div>
-
-<div class="form-group">
-    <label for="supervisoradd" class="col-sm-2 control-label">Occupation Supervisor Phone</label>
-    <div class="col-sm-10">
-      <input class="form-control" id="supervisoradd" value="{{ $alumni->supervisoradd }}" >
-  </div>
-</div>
-
-<div class="form-group">
-    <div class="col-sm-offset-2 col-sm-10">
-
-
-      <button type="submit" class="btn btn-default" id="save" >Save</button>
-  </div>
-</div>
-</form>
-</div>
-</div>
-</div>
-</div>
-</div>
-
 @endsection
