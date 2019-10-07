@@ -1,122 +1,106 @@
-@extends('layouts.min')
+@extends('layouts.auth')
+
 @section('content')
-  <!-- Multi step form --> 
-  <nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
-    
-      <a class="navbar-brand js-scroll-trigger" href="#page-top"></a>
-      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        Menu
-        <i class="fas fa-bars"></i>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#register">Register as RVTTI Alumni</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#edit">Edit Existing Records</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#graduate">Generate Graduation Form</a>
-          </li>
-        </ul>
-      </div>
-   
-  </nav>
-  <div class="container">
-     <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-<section class="multi_step_form">  
-  <form id="msform"> 
-    <!-- Tittle -->
-    <div class="tittle">
-      <h2>Verification Process</h2>
-      <p>In order to use this service, you have to complete this verification process</p>
-    </div>
-    <!-- progressbar -->
-    <ul id="progressbar">
-      <li class="active">Verify Phone</li>  
-      <li>Upload Documents</li> 
-      <li>Security Questions</li>
-    </ul>
-    <!-- fieldsets -->
-    <fieldset>
-      <h3>Setup your phone</h3>
-      <h6>We will send you a SMS. Input the code to verify.</h6> 
-      <div class="form-row"> 
-        <div class="form-group col-md-6">  
-          <input type="tel" id="phone" class="form-control" placeholder="+880"> 
-        </div>  
-        <div class="form-group col-md-6"> 
-          <input type="text" class="form-control" placeholder="+8801123456789">
-        </div> 
-      </div> 
-      <div class="done_text"> 
-        <a href="#" class="don_icon"><i class="ion-android-done"></i></a> 
-        <h6>A secret code is sent to your phone. <br>Please enter it here.</h6> 
-      </div>  
-      <div class="code_group"> 
-        <input type="text" class="form-control" placeholder="0">
-        <input type="text" class="form-control" placeholder="0">
-        <input type="text" class="form-control" placeholder="0">
-        <input type="text" class="form-control" placeholder="0">
-      </div>  
-      <button type="button" class="action-button previous_button">Back</button>
-      <button type="button" class="next action-button">Continue</button>  
-    </fieldset>
-    <fieldset>
-      <h3>Verify Your Identity</h3>
-      <h6>Please upload any of these documents to verify your Identity.</h6>
-      <div class="passport">
-        <h4>Govt. ID card <br>PassPort <br>Driving License.</h4> 
-        <a href="#" class="don_icon"><i class="ion-android-done"></i></a> 
-      </div>
-      <div class="input-group"> 
-        <div class="custom-file">
-          <input type="file" class="custom-file-input" id="upload">
-          <label class="custom-file-label" for="upload"><i class="ion-android-cloud-outline"></i>Choose file</label>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-header">{{ __('Update Your Details $alumni->id') }}</div>
+
+        <div class="card-body">
+
+
+          
+<br />
+
+  
+      <form method="post" action="{{ route('alumnis.update', $alumni->id) }}">
+        @method('PATCH')
+        @csrf
+        <div class="form-group">
+          <label for="name">Name:</label>
+          <input type="text" class="form-control" name="fullname" value="{{ $alumni->fullname }}" />
         </div>
+        <div class="form-group">
+          <label for="dept">dept:</label>
+          <input type="text" class="form-control" name="dept" value="{{ $alumni->dept }}" />
+        </div>
+        <div class="form-group">
+          <label for="course">course:</label>
+          <input type="text" class="form-control" name="course" value="{{ $alumni->course }}" />
+        </div>
+         <div class="form-group">
+          <label for="feser">Final Exam Series:</label>
+          <input type="text" class="form-control" name="feser" value="{{ $alumni->feser }}" />
+        </div>
+        <div class="form-group">
+          <label for="feyear">Final Year:</label>
+          <input type="text" class="form-control" name="feyear" value="{{ $alumni->feyear }}" />
+        </div>
+        <div class="form-group">
+          <label for="idnum">ID Number :</label>
+          <input type="text" class="form-control" name="idnum" value="{{ $alumni->idnum }}" />
+        </div>
+         <div class="form-group">
+          <label for="adm">Student Registration Number :</label>
+          <input type="text" class="form-control" name="adm" value="{{ $alumni->adm }}" />
+        </div>
+         <div class="form-group">
+          <label for="level">Level :</label>
+          <input type="text" class="form-control" name="level" value="{{ $alumni->level }}" />
+        </div>
+        <div class="form-group">
+          <label for="current_address">Your Current Address:</label>
+          <input type="text" class="form-control" name="current_address" value="{{ $alumni->current_address }}" />
+        </div>
+         <div class="form-group">
+          <label for="permanent_address">Your Permanent Address:</label>
+          <input type="text" class="form-control" name="permanent_address" value="{{ $alumni->permanent_address }}" />
+        </div>
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="email" class="form-control" name="email" value="{{ $alumni->email }}" />
+        </div>
+        <div class="form-group">
+          <label for="mobile">Mobile :</label>
+          <input type="text" class="form-control" name="mobile" value="{{ $alumni->mobile }}" />
+        </div>
+        <div class="form-group">
+          <label for="nextofkin">Next of Kin:</label>
+          <input type="text" class="form-control" name="nextofkin" value="{{ $alumni->nextofkin }}" />
+        </div>
+         <div class="form-group">
+          <label for="nextofkinphone">Next of Kin Mobile :</label>
+          <input type="text" class="form-control" name="nextofkinphone" value="{{ $alumni->nextofkinphone }}" />
+        </div>
+        <div class="form-group">
+          <label for="nextofkinadd">Next of Kin Address:</label>
+          <input type="text" class="form-control" name="nextofkinadd" value="{{ $alumni->nextofkinadd }}" />
+        </div>
+         <div class="form-group">
+          <label for="occupation">Current Job:</label>
+          <input type="text" class="form-control" name="occupation" value="{{ $alumni->occupation }}" />
+        </div>
+        <div class="form-group">
+          <label for="placeofworkadd">Place of Work Address:</label>
+          <input type="text" class="form-control" name="placeofworkadd" value="{{ $alumni->placeofworkadd }}" />
+        </div>
+
+        <div class="form-group">
+          <label for="occupation_place">Place of Work :</label>
+          <input type="text" class="form-control" name="occupation_place" value="{{ $alumni->occupation_place }}" />
+        </div>
+
+        <div class="form-group">
+          <label for="supervisoradd">Work Supervisors phone:</label>
+          <input type="text" class="form-control" name="supervisoradd" value="{{ $alumni->supervisoradd }}" />
+        </div>
+
+        <button type="submit" class="btn btn-primary">Update</button>
+      </form>
+       </div>
       </div>
-      <ul class="file_added">
-        <li>File Added:</li>
-        <li><a href="#"><i class="ion-paperclip"></i>national_id_card.png</a></li>
-        <li><a href="#"><i class="ion-paperclip"></i>national_id_card_back.png</a></li>
-      </ul>
-      <button type="button" class="action-button previous previous_button">Back</button>
-      <button type="button" class="next action-button">Continue</button>  
-    </fieldset>  
-    <fieldset>
-      <h3>Create Security Questions</h3>
-      <h6>Please update your account with security questions</h6> 
-      <div class="form-group"> 
-        <select class="product_select">
-          <option data-display="1. Choose A Question">1. Choose A Question</option> 
-          <option>2. Choose A Question</option>
-          <option>3. Choose A Question</option> 
-        </select>
-      </div> 
-      <div class="form-group fg_2"> 
-        <input type="text" class="form-control" placeholder="Anwser here:">
-      </div> 
-      <div class="form-group"> 
-        <select class="product_select">
-          <option data-display="1. Choose A Question">1. Choose A Question</option> 
-          <option>2. Choose A Question</option>
-          <option>3. Choose A Question</option> 
-        </select>
-      </div> 
-      <div class="form-group fg_3"> 
-        <input type="text" class="form-control" placeholder="Anwser here:">
-      </div> 
-      <button type="button" class="action-button previous previous_button">Back</button> 
-      <a href="#" class="action-button">Finish</a> 
-    </fieldset>  
-  </form>  
-</section> 
+    </div>
+  </div>
 </div>
-</div>
-</div>
-</div>
-<!-- End Multi step form -->
 @endsection

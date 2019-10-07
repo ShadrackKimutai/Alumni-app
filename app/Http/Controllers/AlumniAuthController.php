@@ -11,7 +11,26 @@ use Illuminate\Support\Facades\DB;
  class AlumniAuthController extends Controller {
 
  	public function login(){
- 		return view('alumni.login');
+ 		return view('alumni.update-login');
+ 	}
+ 	public function gradlogin(){
+ 		return view ('alumni.form-gen-login');
+ 	}
+
+ 	public function dologingrad(Request $request){
+ 		$email = $request->input('email');
+ 		$idnum= $request->input('idnum');
+    // Check validation
+ 		$checkLogin = DB::table('alumnis')->where(['email'=>$email,'idnum'=>$idnum])->get();
+ 		if(count($checkLogin)  > 0){
+
+ 			$alumni = DB::table('alumnis')->where('idnum', $idnum)->first();
+ 			//$id=$alumni->id;
+
+ 			return view("alumni.formgen",['alumni'=>$alumni]);
+ 		}else{
+ 			return redirect()->back()->with('message', ['Details you entered does not match our records']); 
+ 		}
  	}
 
  	public function dologin(Request $request){
@@ -19,11 +38,14 @@ use Illuminate\Support\Facades\DB;
  		$idnum= $request->input('idnum');
     // Check validation
  		$checkLogin = DB::table('alumnis')->where(['email'=>$email,'idnum'=>$idnum])->get();
- 		if(count($checkLogin)  >0){
+ 		if(count($checkLogin)  > 0){
+
  			$alumni = DB::table('alumnis')->where('idnum', $idnum)->first();
- 			 return view("alumni.edit",['alumni'=>$alumni]);
+ 			//$id=$alumni->id;
+
+ 			return view("alumni.edit",['alumni'=>$alumni]);
  		}else{
- 			echo "Login Faield Wrong Data Passed";
+ 			return redirect()->back()->with('message', ['Details you entered does not match our records']); 
  		}
  	}
  }

@@ -42,7 +42,7 @@
                  {{ session()->get('message') }}
 <br>
            
-                  <a href="{{ url('http://alumni.shx') }}" class="btn bg-secondary btn-outline btn-s js-scroll-trigger">OK</a>
+                  <a href="{{ url('http://alumni.shx') }}" class="btn bg-dark btn-outline btn-xl js-scroll-trigger">OK</a>
                
        
     </div>

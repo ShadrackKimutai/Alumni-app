@@ -26,7 +26,10 @@ class Alumni extends Model
 		'nextofkinadd',
 		'nextofkinphone',
 		'placeofworkadd',
-		'supervisoradd'
+		'supervisoradd',
+		'Trans',
+		'Bank'
+
 
 	];
 }

@@ -11,7 +11,7 @@
                 <div class="card-header">{{ __('Access Your Data') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('alumni-login') }}">
+                    <form method="POST" action="{{ route('update') }}">
                         @csrf
  @if ($errors->any())<strong>
                              <div class="alert alert-danger">

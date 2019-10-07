@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Alumni;
 use Illuminate\Http\Request;
 use Validator;
+use Codedge\Fpdf\Fpdf\Fpdf;
 
 class AlumniController extends Controller
 {
@@ -57,6 +58,8 @@ class AlumniController extends Controller
            'nextofkinphone'=> 'required', 
            'placeofworkadd'=> 'required', 
            'supervisoradd'=> 'required', 
+           'Trans'=>'nullable',
+           'Bank'=>'nullable'
         ], 
         [
             'adm.required' => 'Student Admission Number is required',
@@ -103,7 +106,7 @@ class AlumniController extends Controller
         //
       $alumni = Alumni::find($id);
 
-        return view('alumni.edit', compact('alumni'));
+       // return view('alumni.edit', compact('alumni'));
     }
 
     /**
@@ -158,6 +161,8 @@ class AlumniController extends Controller
            'nextofkinphone'=> 'required', 
            'placeofworkadd'=> 'required', 
            'supervisoradd'=> 'required', 
+           'Trans'=>'nullable',
+           'Bank'=>'nullable'
         ], 
         [
             'adm.required' => 'Student Admission Number is required',
@@ -174,7 +179,7 @@ class AlumniController extends Controller
             'nextofkinadd.required'=>  'Next of Kin Address is Required. It Can be similar with Current Address', 
             'nextofkinphone.required'=>  'Next of Kin`s Phone number is Needed', 
             'placeofworkadd.required'=>  'The Locality of your Employment is equired. If Unemployed use N/A', 
-            'supervisoradd.required'=>  'Your Supervisors Phone number is Required. If Unemployed use N/A', 
+            'supervisoradd.required'=>  'Your Supervisors Phone number is Required. If Unemployed use N/A' 
             ]);
   
         $alumni = Alumni::find($id);
@@ -200,14 +205,22 @@ class AlumniController extends Controller
         $alumni->nextofkinphone = $request->get('nextofkinphone');
         $alumni->placeofworkadd = $request->get('placeofworkadd');
         $alumni->supervisoradd = $request->get('supervisoradd');
-
+        $alumni->Bank = $request->get('Bank');
+        $alumni->Trans = $request->get('Trans');
         $alumni->save();
 
-      return redirect('/')->with('message', 'Your details have been updated');
+       if ($request->get('Bank')!=""){
+            Fpdf::AddPage();
+            Fpdf::SetFont('Courier', 'B', 18);
+            Fpdf::Cell(50, 25, 'Hello World!');
+            Fpdf::Output();
+       }else{
+        return redirect('/')->with('message', 'Your details have been updated');
+    }
 
 
     }
-
+    
     /**
      * Remove the specified resource from storage.
      *

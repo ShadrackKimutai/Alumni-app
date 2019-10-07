@@ -21,7 +21,7 @@
               <div class="device">
                 <div class="screen">
                   <!-- Demo image for screen mockup, you can put an image here, some HTML, an animation, video, or anything else! -->
-                  <img src="img/demo-screen-1.png" class="img-fluid" alt="">
+                  <img src="img/demo-screen-1.jpg" class="img-fluid" alt="">
                 </div>
                 <div class="button">
                   <!-- You can hook the "home button" to some JavaScript events or just remove it -->
@@ -53,24 +53,22 @@
         <div class="col-md-8 mx-auto">
           <h2 class="section-heading">Are your details wrongly captured</h2>
           <p>Click the link below to correct it. </p>
-          <a href="{{ route('update')}}" class="btn bg-primary btn-outline btn-xl js-scroll-trigger">Click to Edit Details</a>
+          <a href="{{ route('alumni-login')}}" class="btn bg-primary btn-outline btn-xl js-scroll-trigger">Click to Edit Details</a>
 </div>
 
       </div>
     </div>
   </section>
- 
-   <section class="download bg-primary text-center" id="graduate">
-    <div class="container">
-      <div class="row h-100">
+  <section class="features bg-dark text-center"  id="graduate">
+   <div class="container">
+      <div class="row">
         <div class="col-md-8 mx-auto">
-          <h2 class="section-heading">Generate Graduation Form</h2>
-          <p>If you have registered as alumni, Go ahead and generate graduation form using the link below</p>
-          <a href="{{ route('graduateform') }}" class="btn bg-dark btn-outline btn-xl js-scroll-trigger">Click to Generate Graduation Form</a>
-</div>
-</div>
+          <h1 class="mb-5 text-white">Do you wish to generate the graduation form </h1></p>
+          <a href="#generate" class="btn bg-secondary btn-outline btn-xl js-scroll-trigger">Click to Generate</a>
 </div>
 
+      </div>
+    </div>
   </section>
 @endsection
   

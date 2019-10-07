@@ -1,7 +1,10 @@
 @extends('layouts.auth')
-
+@section('title')
+ <title>Update Alumni</title>
+    
+@endsection
 @section('content')
-<div class="container">
+<div class="container"> 
   <div class="row justify-content-center">
     <div class="col-md-6">
       <div class="card">
@@ -13,15 +16,7 @@
           
 <br />
 
-    @if ($errors->any())
-      <div class="alert alert-danger">
-        <ul>
-            @foreach ($errors->all() as $error)
-              <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-      </div><br />
-    @endif
+  
       <form method="post" action="{{ route('alumnis.update', $alumni->id) }}">
         @method('PATCH')
         @csrf
@@ -103,8 +98,8 @@
           <label for="supervisoradd">Work Supervisors phone:</label>
           <input type="text" class="form-control" name="supervisoradd" value="{{ $alumni->supervisoradd }}" />
         </div>
+          <Button type="submit" name="previous" class="btn btn-primary">Update</Button>
 
-        <button type="submit" class="btn btn-primary">Update</button>
       </form>
        </div>
       </div>

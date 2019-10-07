@@ -18,10 +18,9 @@ Route::get('/', function () {
 Route::get('/new', function () {
     return view('alumni/register');
 });
-Route::get('update', function () {
+Route::get('alumnis.edit', function () {
 	return view('alumni.edit');
 });
-
 Route::resource('alumnis','AlumniController');
 
 Auth::routes();
@@ -30,8 +29,9 @@ Route::group(['middleware' => ['web']], function () {
 ROute::get('/home', 'HomeController@index' );
 Route::get('/search','HomeController@search');
 
-    Route::get('alumni-login', 'AlumniAuthController@login');
+Route::get('update', 'AlumniAuthController@login');
+Route::get('graduateform','AlumniAuthController@gradlogin');
 
-    Route::post('alumni-login', ['as'=>'alumni-login','uses'=>'AlumniAuthController@dologin']);
-
+Route::post('update', ['as'=>'update','uses'=>'AlumniAuthController@dologin']);
+Route::post('graduateform', ['as'=>'graduateform','uses'=>'AlumniAuthController@dologingrad']);
 });
