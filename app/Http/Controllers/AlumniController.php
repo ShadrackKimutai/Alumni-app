@@ -210,10 +210,7 @@ class AlumniController extends Controller
         $alumni->save();
 
        if ($request->get('Bank')!=""){
-            Fpdf::AddPage();
-            Fpdf::SetFont('Courier', 'B', 18);
-            Fpdf::Cell(50, 25, 'Hello World!');
-            Fpdf::Output();
+        return view('alumni.pdf',['alumni'=>$alumni]);
        }else{
         return redirect('/')->with('message', 'Your details have been updated');
     }
