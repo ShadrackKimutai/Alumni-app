@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Alumni;
 use Illuminate\Http\Request;
 use Validator;
-use Codedge\Fpdf\Fpdf\Fpdf;
+use setasign\Fpdi\FpdfTpl;
 
 class AlumniController extends Controller
 {
