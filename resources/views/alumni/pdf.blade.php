@@ -1,5 +1,7 @@
-@php
+ @php
     use setasign\Fpdi\Fpdi;
+  //dd($alumni);
+    flush();
     $pdf = new Fpdi();
     $pdf->SetCreator("Script by Shadrack Kimutai (0724226334)");
     $pdf->SetDisplayMode('real');
@@ -16,9 +18,8 @@
     $pdf->Text(43,101,strtoupper($alumni->level));
     $pdf->Text(70,110,$alumni->feyear);
     $pdf->Text(70,119,strtoupper($alumni->feser));
-    $pdf->Text(58,128,$alumni->Bank);
-    $pdf->Text(67,136,strtoupper($alumni->Trans));
-   
-    $pdf->Output();
+    $pdf->Text(58,128,$alumni->trans);
+    $pdf->Text(67,136,strtoupper($alumni->serial));
+    $pdf->Output('graduation-form.pdf','I');
     ob_flush();
 @endphp

@@ -11,7 +11,7 @@
       <div class="row h-100">
         <div class="col-lg-7 my-auto">
           <div class="header-content mx-auto">
-            <h1 class="mb-5">New Age is an app landing page that will help you beautifully showcase your new mobile app, or anything else!</h1>
+            <h1 class="mb-5">Welcome to RVTTI alumni page. </h1>
             <a href="#register" class="btn bg-dark btn-outline btn-xl js-scroll-trigger">Enroll Now </a>
           </div>
         </div>

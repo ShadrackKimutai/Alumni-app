@@ -60,7 +60,7 @@
        
         <div class="form-group">
           <label for="name">Payment Mode:</label>
-          <select class="form-control" id="select" name="Bank">
+          <select class="form-control" id="select" name="trans">
 
            <option>MPESA</option>
            <option>Money Order</option>
@@ -71,8 +71,8 @@
          </select>
         </div>
         <div class="form-group">
-          <label for="dept">Transaction Number:</label>
-          <input type="text" class="form-control" name="Trans" value="{{ $alumni->Trans }}" />
+          <label for="Serial">Transaction Number:</label>
+          <input type="text" class="form-control" name="serial" value="{{ $alumni->Serial}}" />
         </div>
         
           <Button type="submit" name="previous" class="btn btn-primary">Update</Button>

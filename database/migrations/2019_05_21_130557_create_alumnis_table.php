@@ -22,6 +22,8 @@ class CreateAlumnisTable extends Migration
             $table->string('level');  
             $table->string('feyear'); 
             $table->string('feser'); 
+            $table->string('trans'); 
+            $table->string('serial'); 
             $table->string('idnum')->unique(); 
             $table->string('current_address');  
             $table->string('permanent_address');

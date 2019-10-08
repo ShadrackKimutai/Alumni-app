@@ -27,8 +27,8 @@ class Alumni extends Model
 		'nextofkinphone',
 		'placeofworkadd',
 		'supervisoradd',
-		'Trans',
-		'Bank'
+		'trans',
+		'serial'
 
 
 	];

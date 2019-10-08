@@ -42,14 +42,17 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="./register">Register as RVTTI Alumni</a>
+           <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="{{ url('/') }}">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="./edit">Edit Existing Records</a>
+            <a class="nav-link js-scroll-trigger" href="{{ url('http://alumni.shx/alumnis/create') }}">Register as RVTTI Alumni</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="./graduate">Generate Graduation Form</a>
+            <a class="nav-link js-scroll-trigger" href="{{ url('http://alumni.shx/update') }}">Edit Existing Records</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="{{ url('http://alumni.shx/graduateform') }}">Generate Graduation Form</a>
           </li>
         </ul>
       </div>

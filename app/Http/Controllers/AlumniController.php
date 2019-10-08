@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Alumni;
 use Illuminate\Http\Request;
 use Validator;
-use setasign\Fpdi\FpdfTpl;
 
 class AlumniController extends Controller
 {
@@ -17,6 +16,8 @@ class AlumniController extends Controller
     public function index()
     {
         //
+
+
     }
 
     /**
@@ -39,14 +40,14 @@ class AlumniController extends Controller
     {
         
         $request -> validate([
-            'adm'=> 'required',  
+            'adm'=> 'unique|alumni:adm|required',  
            'fullname'=> 'required', 
            'dept'=> 'required', 
            'course'=> 'required',  
            'level'=> 'required',  
            'feyear'=> 'required', 
            'feser'=> 'required', 
-           'idnum' => 'required', 
+           'idnum' => 'unique|required', 
            'current_address'=> 'required',  
            'permanent_address'=> 'required',
            'email'=> 'required', 
@@ -58,8 +59,8 @@ class AlumniController extends Controller
            'nextofkinphone'=> 'required', 
            'placeofworkadd'=> 'required', 
            'supervisoradd'=> 'required', 
-           'Trans'=>'nullable',
-           'Bank'=>'nullable'
+           'trans'=>'nullable',
+           'serial'=>'nullable'
         ], 
         [
             'adm.required' => 'Student Admission Number is required',
@@ -161,8 +162,8 @@ class AlumniController extends Controller
            'nextofkinphone'=> 'required', 
            'placeofworkadd'=> 'required', 
            'supervisoradd'=> 'required', 
-           'Trans'=>'nullable',
-           'Bank'=>'nullable'
+           'trans'=>'nullable',
+           'serial'=>'nullable'
         ], 
         [
             'adm.required' => 'Student Admission Number is required',
@@ -205,11 +206,11 @@ class AlumniController extends Controller
         $alumni->nextofkinphone = $request->get('nextofkinphone');
         $alumni->placeofworkadd = $request->get('placeofworkadd');
         $alumni->supervisoradd = $request->get('supervisoradd');
-        $alumni->Bank = $request->get('Bank');
-        $alumni->Trans = $request->get('Trans');
+        $alumni->trans = $request->get('trans');
+        $alumni->serial = $request->get('serial');
         $alumni->save();
 
-       if ($request->get('Bank')!=""){
+       if ($request->get('trans')!=""){
         return view('alumni.pdf',['alumni'=>$alumni]);
        }else{
         return redirect('/')->with('message', 'Your details have been updated');

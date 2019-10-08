@@ -42,7 +42,7 @@
                  {{ session()->get('message') }}
 <br>
            
-                  <a href="{{ url('http://alumni.shx') }}" class="btn bg-dark btn-outline btn-xl js-scroll-trigger">OK</a>
+                  <a href="{{ url('http://alumni.rvti.ac.ke/') }}" class="btn bg-dark btn-outline btn-xl js-scroll-trigger">OK</a>
                
        
     </div>
@@ -77,18 +77,8 @@
             @yield('content')
              <footer>
     <div class="container">
-      <p> &copy; Your Website 2019. All Rights Reserved.</p>
-      <ul class="list-inline">
-        <li class="list-inline-item">
-          <a href="#">Privacy</a>
-        </li>
-        <li class="list-inline-item">
-          <a href="#">Terms</a>
-        </li>
-        <li class="list-inline-item">
-          <a href="#">FAQ</a>
-        </li>
-      </ul>
+      <p> &copy; <a href="http://www.rvti.ac.ke" target="_blank" >RVTTI</a> 2019. All Rights Reserved.</p>
+     
     </div>
   </footer>
   @endif

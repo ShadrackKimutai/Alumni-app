@@ -21,6 +21,10 @@
         @method('PATCH')
         @csrf
         <div class="form-group">
+          <label for="adm">Student Registration Number (Only WebAdmin Can Edit This) :</label>
+          <input type="text" class="form-control" name="adm" value="{{ $alumni->adm }}" readonly />
+        </div>
+        <div class="form-group">
           <label for="name">Name:</label>
           <input type="text" class="form-control" name="fullname" value="{{ $alumni->fullname }}" />
         </div>
@@ -44,10 +48,7 @@
           <label for="idnum">ID Number :</label>
           <input type="text" class="form-control" name="idnum" value="{{ $alumni->idnum }}" />
         </div>
-         <div class="form-group">
-          <label for="adm">Student Registration Number :</label>
-          <input type="text" class="form-control" name="adm" value="{{ $alumni->adm }}" />
-        </div>
+         
          <div class="form-group">
           <label for="level">Level :</label>
           <input type="text" class="form-control" name="level" value="{{ $alumni->level }}" />
