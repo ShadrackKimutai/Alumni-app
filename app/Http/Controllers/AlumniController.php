@@ -40,18 +40,18 @@ class AlumniController extends Controller
     {
         
         $request -> validate([
-            'adm'=> 'unique|alumni:adm|required',  
+            'adm'=> 'required|unique:alumnis|max:10|min:8',  
            'fullname'=> 'required', 
            'dept'=> 'required', 
            'course'=> 'required',  
            'level'=> 'required',  
            'feyear'=> 'required', 
            'feser'=> 'required', 
-           'idnum' => 'unique|required', 
+           'idnum' => 'required|unique:alumnis|max:9|min:8', 
            'current_address'=> 'required',  
            'permanent_address'=> 'required',
            'email'=> 'required', 
-           'mobile'=> 'required',  
+           'mobile'=> 'required|unique:alumnis|max:13|min:12',  
            'occupation'=> 'required', 
            'occupation_place'=> 'required', 
            'nextofkin'=> 'required', 

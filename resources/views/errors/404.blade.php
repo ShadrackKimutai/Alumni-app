@@ -54,7 +54,7 @@
                 404            </div>
 
             <div class="message" style="padding: 10px;">
-                Thepage you were looking for doesnt exist           </div>
+                The page you were looking for doesnt exist           </div>
         </div>
     </body>
 </html>
