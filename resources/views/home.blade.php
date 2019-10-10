@@ -44,16 +44,16 @@
             <tbody>
               @foreach ($alumni as $alumn) 
               <tr>
-                
-                <td>{{ $alumn->Adm }} </td>
+             
+                <td>{{ $alumn->adm }} </td>
                 <td>{{ $alumn->fullname }} </td>
-                <td>{{ $alumn->IDNum }} </td>
+                <td>{{ $alumn->idnum }} </td>
                 <td>{{ $alumn->course }} </td>
                 <td>{{ $alumn->dept }} </td>
                 <th>{{ $alumn->mobile }}</th>
                 <td>{{ $alumn->email }}</td>
                 <td>
-                    <a href="#" class="btn btn-primary">Edit</a>
+                    <a href="{{route('alumnis.edit',$alumn->id)}}" data-hover="tooltip" data-placement="top" data-target="#modal-edit-customers{{ $alumn->id }}" data-toggle="modal" id="modal-edit"  class="btn btn-primary">Edit</a>
                 </td>
               </tr>
               @endforeach
