@@ -213,7 +213,7 @@ class AlumniController extends Controller
        if ($request->get('trans')!=""){
         return view('alumni.pdf',['alumni'=>$alumni]);
        }else{
-        return redirect('/')->with('message', 'Your details have been updated');
+        return redirect()->back()->with('message', 'Your details have been updated');
     }
 
 

@@ -22,14 +22,15 @@ use Illuminate\Support\Facades\DB;
  		$idnum= $request->input('idnum');
     // Check validation
  		$checkLogin = DB::table('alumnis')->where(['email'=>$email,'idnum'=>$idnum])->get();
+ 		//dd($request);
  		if(count($checkLogin)  > 0){
 
- 			$alumni = DB::table('alumnis')->where('idnum', $idnum)->first();
+ 			$alumni = DB::table('alumnis')->where('idnum', $idnum)->orderBy('feyear', 'desc')->first();
  			//$id=$alumni->id;
 
  			return view("alumni.formgen",['alumni'=>$alumni]);
  		}else{
- 			return redirect()->back()->with('message', ['Details you entered does not match our records']); 
+ 			return redirect()->back()->withError('message', ['Details you entered does not match our records']); 
  		}
  	}
 
@@ -38,14 +39,15 @@ use Illuminate\Support\Facades\DB;
  		$idnum= $request->input('idnum');
     // Check validation
  		$checkLogin = DB::table('alumnis')->where(['email'=>$email,'idnum'=>$idnum])->get();
+ 		//dd($checkLogin);
  		if(count($checkLogin)  > 0){
 
- 			$alumni = DB::table('alumnis')->where('idnum', $idnum)->first();
+ 			$alumni = DB::table('alumnis')->where('idnum', $idnum)->orderBy('feyear', 'desc')->first();
  			//$id=$alumni->id;
 
  			return view("alumni.edit",['alumni'=>$alumni]);
  		}else{
- 			return redirect()->back()->with('message', ['Details you entered does not match our records']); 
+ 			return redirect()->back()->withError('message', ['Details you entered does not match our records']); 
  		}
  	}
  }
